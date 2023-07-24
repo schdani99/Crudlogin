@@ -1,0 +1,22 @@
+.card {
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    
+    left:50%;
+    transform: translate(-50%,50%);
+    background: rgb(111, 42, 72);
+    background: linear-gradient(90deg, rgb(104, 41, 112) 0%,rgb(118, 65, 104)100%);
+}
+.card h1,
+h6
+{
+    color:aliceblue;
+}
+label{
+    color: aliceblue;
+}
+.mat-label{
+    color: aliceblue;
+}

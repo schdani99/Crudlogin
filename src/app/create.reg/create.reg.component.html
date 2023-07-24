@@ -1,0 +1,143 @@
+<div class="logo text-center">
+    <img width="300" src="assets/logo.png" alt="">
+</div>
+
+<div class="registration-form m-3 p-4">
+    <form [formGroup]="registerForm">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Vezetéknév</mat-label>
+                    <input formControlName="firstname" matInput placeholder="Vezetéknév">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Keresztnév</mat-label>
+                    <input formControlName="lastname" matInput placeholder="Keresztnév">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  </mat-form-field>
+                
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="mail" matInput placeholder="Email">
+                    <mat-icon matSuffix>alternate_email</mat-icon>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Jelszó</mat-label>
+                    <input type="password" formControlName="password" matInput placeholder="password">
+                    
+                  </mat-form-field>
+                
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                  <mat-label>Telefonszám</mat-label>
+                  <input formControlName="phone" matInput placeholder="Telefonszám">
+                  <mat-icon matSuffix>mobile_friendly</mat-icon>
+                </mat-form-field>
+              
+          </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Súly</mat-label>
+                    <input formControlName="tomeg" matInput placeholder="Weight">
+                    <mat-icon matSuffix>line_weight</mat-icon>
+                    <mat-hint>Kg</mat-hint>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Magasság</mat-label>
+                    <input [readonly]="!this.registerForm.value.tomeg" formControlName="magas" matInput placeholder="Height">
+                    <mat-icon matSuffix><i class="fa fa-text-height" aria-hidden="true"></i></mat-icon>
+                    <mat-hint>Méter</mat-hint>
+                  </mat-form-field>
+                
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>BMI</mat-label>
+                <input readonly type="number" formControlName="bmi" matInput placeholder="BMI">
+                <mat-icon matSuffix>><i class="fa fa-sort-numeric-desc" arida-hidden="true"></i></mat-icon>
+              </mat-form-field>
+            </div>
+          
+            <div class="col-md-6 mt-3">
+                <label id="example-radio-group-label">Szüksége van személyi eddzőre?</label>
+<mat-radio-group formControlName="eddzo"  class="example-radio-group" >
+  <mat-radio-button class="example-radio-button" *ngFor="let trainerOpt of ['Yes','No']" [value]="trainerOpt">
+    {{trainerOpt}}
+  </mat-radio-button>
+  
+</mat-radio-group>
+
+            </div>
+            <div class="col-md-6 mt-3">
+                <label id="example-radio-group-label">Neme</label>
+<mat-radio-group formControlName="Neme" class="example-radio-group" >
+  <mat-radio-button class="example-radio-button" *ngFor="let NemOPT of Nemek "[value]="NemOPT">
+    {{NemOPT}}
+  </mat-radio-button>
+  
+</mat-radio-group>
+
+            </div>
+            <div class="colt-md6 mt-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Válassz bérletet</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let berlet of packages" [value]="berlet">
+                        {{berlet}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="colt-md6 mt-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Mi motivál?</mat-label>
+                    <mat-select formControlName="motiv" multiple>
+                      <mat-option *ngFor="let mot of motivate" [value]="mot">
+                        {{mot}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6 mt-3">
+              <label id="example-radio-group-label">Voltál már eddző teremben?</label>
+<mat-radio-group formControlName="voltgym" class="example-radio-group" >
+<mat-radio-button class="example-radio-button" *ngFor="let voltgymOpt of ['Yes','No']" [value]="voltgymOpt">
+  {{voltgymOpt}}
+</mat-radio-button>
+
+</mat-radio-group>
+
+          </div>
+          <div class="col md-6">
+            <mat-form-field appearance="outline">
+          <mat-label>Kezdeti dátum</mat-label>
+          <input formControlName="date" matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+            
+          </div>
+            
+            
+            
+        </div>
+        <div>
+        <button *ngIf="!isUpdateActive" (click)="submit()" mat-raised-button color:accent class="col-md-3 mt-3" mat-raised-button color="accent">Regisztráció</button>
+        <button *ngIf="isUpdateActive" (click)="update()" mat-raised-button color:accent class="col-md-3 mt-3" mat-raised-button color="accent">Mentés</button>
+        <button *ngIf="!isUpdateActive" class="col-md-3 mt-3" routerLink="/login" mat-raised-button color="accent" style="float: right;"> Bejelentkezéshez</button>
+  
+</div>
+
+    </form>
+</div>

@@ -1,0 +1,61 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{userdetail.firstname}} {{userdetail.lastname}}</mat-card-title>
+      <mat-card-subtitle>{{userdetail.mail}}</mat-card-subtitle>
+      <button mat-icon-button (click)="edit(userdetail.id)" class="mx-2" color="accent"><i class="fa fa-pencil"
+        aria-hidden="true"></i></button>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            
+                <div matLine>
+                    Telefon :
+                    <button mat-button>{{userdetail.phone}}    </button>
+                </div>
+        </mat-list>
+
+        <mat-list>
+            
+            <div matLine>
+                Nem :
+                <button mat-button> {{userdetail.Neme}}   </button>
+            </div>
+            
+    </mat-list>
+
+
+
+<mat-list>
+            
+    <div matLine>
+        BMI :
+        <button mat-button>  {{userdetail.bmi}}  </button>
+    </div>
+</mat-list>
+
+
+<mat-list>
+            
+    <div matLine>
+        Eddző :
+        <button mat-button>{{userdetail.eddzo}}    </button>
+    </div>
+</mat-list>
+
+<mat-list>
+            
+    <div matLine>
+        Dátum :
+        <button mat-button>{{userdetail.date.slice(0,10)}}    </button>
+    </div>
+    
+</mat-list>
+<mat-list><button class="col-md-3 mt-3" routerLink="/login" mat-raised-button color="accent" style="float: right;"> Kijelentkezés </button>
+</mat-list>
+ 
+
+
+   
+    </mat-card-content>
+  </mat-card>
